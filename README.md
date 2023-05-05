@@ -4,7 +4,7 @@ The Ethereum Tx Queue is a small utility that allows you to queue transactions t
 
 It has disk persistance by boltdb and will continue to process if the server is shutdown while the queue has elements.
 
-Attention: if the server is down, it won't receive requests to enqueue new transactions, to address this some google pub/sub / AWS SQS or some other mechanism should be used, but there's no reason why would the server go down ...right? :)
+:horse: Attention: if the server is down, it won't receive requests to enqueue new transactions, to address this some google pub/sub / AWS SQS or some other mechanism should be used, but there's no reason why would the server go down ...right? :)
 
 ### Configuration
 
@@ -36,7 +36,7 @@ When you send a transaction through the Ethereum Tx Queue, it will be added to t
 
 After sending a transaction, the Ethereum Tx Queue will wait for `SLEEP_AFTER_TX_MS` milliseconds before accepting another transaction. This can be used to prevent rate-limiting issues with the Ethereum RPC endpoint.
 
-The server also has a GET /health endpoint if you want to monitor the health of application
+:bulb: The server also has a GET /health endpoint if you want to monitor the health of application
 
 
 ### Security
@@ -44,7 +44,7 @@ The server also has a GET /health endpoint if you want to monitor the health of 
 Raw txes are already signed by the private key so you shouldn't worry about them.
 You should secure this API by doing some allowlist
 
-eg: in nginx you could do something like this:
+:bulb: eg: in nginx you could do something like this:
 
 ~~~~
 location /my-endpoint {
