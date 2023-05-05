@@ -20,22 +20,6 @@ To use the Ethereum Tx Queue, you'll need to configure it by setting the followi
 
 Note that the Ethereum Tx Queue server only runs on the local machine by default.
 
-### Security
-
-Raw txes are already signed by the private key so you shouldn't worry about them.
-You should secure this API by doing some allowlist
-
-eg: in nginx you could do something like this:
-
-~~~~
-location /my-endpoint {
-    allow 1.2.3.4;
-    allow 192.168.1.200;
-    deny all;
-    # your configuration for the endpoint here
-}
-~~~~
-
 ### Usage
 
 To use the Ethereum Tx Queue, you'll need to send a POST request to `http://localhost:<SERVER_PORT>/push` with a JSON payload containing the following data:
@@ -53,6 +37,23 @@ When you send a transaction through the Ethereum Tx Queue, it will be added to t
 After sending a transaction, the Ethereum Tx Queue will wait for `SLEEP_AFTER_TX_MS` milliseconds before accepting another transaction. This can be used to prevent rate-limiting issues with the Ethereum RPC endpoint.
 
 The server also has a GET /health endpoint if you want to monitor the health of application
+
+
+### Security
+
+Raw txes are already signed by the private key so you shouldn't worry about them.
+You should secure this API by doing some allowlist
+
+eg: in nginx you could do something like this:
+
+~~~~
+location /my-endpoint {
+    allow 1.2.3.4;
+    allow 192.168.1.200;
+    deny all;
+    # your configuration for the endpoint here
+}
+~~~~
 
 ### Testing
 
