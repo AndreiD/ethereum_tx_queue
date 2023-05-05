@@ -36,7 +36,13 @@ The server also has a GET /health endpoint if you want to monitor the health of 
 
 ### Testing
 
-Look under /tests/ folder. Publish the Vote.sol contract to some testnet.
+Look under /tests/ folder. Publish the Vote.sol contract to some testnet or just use this one
+
+~~~~
+https://testnet.snowtrace.io/address/0x721A8a1B6f313532c74e74C7e5Df3268f9B23917
+~~~~
+
+
 Edit the .env file here for the RPC URL and the Private Key
 Private Key is needed for the raw tx.... 
 

@@ -20,6 +20,7 @@ import (
 	"github.com/joho/godotenv"
 )
 
+// https://testnet.snowtrace.io/address/0x721A8a1B6f313532c74e74C7e5Df3268f9B23917  - fell free to use it!
 const CONTRACT_ADD = "0x721A8a1B6f313532c74e74C7e5Df3268f9B23917"
 
 func main() {
