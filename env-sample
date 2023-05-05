@@ -1,0 +1,7 @@
+SERVER_PORT=5000
+RPC_URL="https://xxxxxxxxxxxxxxxx/rpc"
+MAX_QUEUE_SIZE=10000
+RETRY_COUNT=2
+RETRY_DELAY_SEC=5
+SECRET_KEY="change-me-xxxxxxxxxxxxxxxxxxxxxx"
+LOCAL_DB_PATH=/tmp/ethtxqueue.db
