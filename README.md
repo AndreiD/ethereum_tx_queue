@@ -1,6 +1,10 @@
 # Ethereum Tx Queue
 
-The Ethereum Tx Queue is a small utility that allows you to queue transactions to be sent sequentially to an Ethereum RPC endpoint. It provides a simple way to retry failed transactions, and saves successful transactions and errors in separate log files.
+The Ethereum Tx Queue is a small utility that allows you to queue transactions to be sent sequentially to an Ethereum RPC endpoint. It provides a simple way to retry failed transactions, and saves successful transactions and errors in separate log files. 
+
+It has disk persistance by boltdb and will continue to process if the server is shutdown while the queue has elements.
+
+Attention: if the server is down, it won't receive requests to enqueue new transactions, to address this some google pub/sub / AWS SQS or some other mechanism should be used, but there's no reason why would the server go down ...right? :)
 
 ### Configuration
 
