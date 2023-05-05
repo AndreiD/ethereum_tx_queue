@@ -2,7 +2,8 @@ package main
 
 import (
 	"context"
-	"log"
+	"fmt"
+
 	"net/http"
 	"os"
 	"os/signal"
@@ -21,13 +22,13 @@ func main() {
 	if err != nil {
 		panic("Error loading .env file")
 	}
-	log.Printf("Ethereum Tx Queue: version 0.1")
-	log.Printf("Server Port %s", os.Getenv("SERVER_PORT"))
-	log.Printf("RPC URL %s", os.Getenv("RPC_URL"))
-	log.Printf("Max Queue Size %s", os.Getenv("MAX_QUEUE_SIZE"))
-	log.Printf("Errors Retry Count %s", os.Getenv("RETRY_COUNT"))
-	log.Printf("Errors Retry Delay %s seconds", os.Getenv("RETRY_DELAY_MS"))
-	log.Printf("Local Persistance %s", os.Getenv("LOCAL_DB_PATH"))
+	fmt.Printf("\nEthereum Tx Queue: version 0.1\n\n")
+	fmt.Printf("Server Port %s\n", os.Getenv("SERVER_PORT"))
+	fmt.Printf("RPC URL %s\n", os.Getenv("RPC_URL"))
+	fmt.Printf("Max Queue Size %s\n", os.Getenv("MAX_QUEUE_SIZE"))
+	fmt.Printf("Errors Retry Count %s\n", os.Getenv("RETRY_COUNT"))
+	fmt.Printf("Errors Retry Delay %s seconds\n", os.Getenv("RETRY_DELAY_MS"))
+	fmt.Printf("Local Persistance %s\n\n", os.Getenv("LOCAL_DB_PATH"))
 
 	//init ETH Client
 	eth.InitEthClient(os.Getenv("RPC_URL"))
@@ -58,19 +59,19 @@ func main() {
 	// Serve'em
 	go func() {
 		if err := server.ListenAndServe(); err != http.ErrServerClosed {
-			log.Fatalf("listen failed: %s\n", err)
+			panic(err)
 		}
 	}()
 
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, os.Interrupt)
 	<-quit
-	log.Println("server shutdown initiated")
+	fmt.Println("server shutdown initiated")
 
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	if err := server.Shutdown(ctx); err != nil {
-		log.Fatal("server shutdown:", err)
+		panic(err)
 	}
-	log.Println("Server Exiting. Bye!")
+	fmt.Println("Server Exiting. Bye!")
 }

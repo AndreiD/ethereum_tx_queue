@@ -8,3 +8,7 @@ mnemonic.txt
 .package-lock.json
 .vscode
 tests/.env
+tests/node_modules
+tests/package-lock.json
+error.log
+success.log

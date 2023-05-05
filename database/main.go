@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"github.com/boltdb/bolt"
-	"github.com/etcd-io/bbolt"
 )
 
 // Push: This function adds an item to the top of the stack.
@@ -12,9 +11,6 @@ import (
 // Pop: This function removes and returns the item at the top of the stack.
 
 // Size: This function returns the number of items in the stack.
-
-// DB...
-var db *bbolt.DB
 
 // Queue
 type Queue struct {
