@@ -1,4 +1,4 @@
-# Ethereum Tx Queue
+# :loop: Ethereum Tx Queue
 
 The Ethereum Tx Queue is a small utility that allows you to queue transactions to be sent sequentially to an Ethereum RPC endpoint. It provides a simple way to retry failed transactions, and saves successful transactions and errors in separate log files. 
 
